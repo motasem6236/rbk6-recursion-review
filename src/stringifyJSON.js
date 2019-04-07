@@ -5,7 +5,7 @@
 
 var stringifyJSON = function(obj) {
   var str = "";
-
+    // check obj if it array
   	if ( Array.isArray(obj)) {
 	   	str += "[";
 	    
@@ -16,19 +16,20 @@ var stringifyJSON = function(obj) {
 	      }
 	    }
 	    str += "]";
-  	} else if ( typeof obj !== "object" ){
+      // check if obj string, number, null, undefined, boolean 
+  	} else if ( typeof obj !== "object" || obj === null){
 
   	  	if ( typeof obj === "string" ){
       		str += "\"" + obj + "\"";
       	} else { 
       	 str += obj;
         }  
-
+        // if obj is object
     } else {
 
         str += "{";
         for ( var k in obj ){
-        	if ( obj[k] === undefined ||  typeof obj[k] === "functions" ){
+        	if ( obj[k] === undefined ||  typeof obj[k] === "function" ){
   					str += "";
   			} else {
       	  		str += "\"" + k + "\":" + stringifyJSON( obj[k] )  ;
@@ -39,5 +40,6 @@ var stringifyJSON = function(obj) {
       	}
         str += "}";
       }
+      
   return str;
 };
