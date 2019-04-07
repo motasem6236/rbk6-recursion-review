@@ -40,5 +40,4 @@ var stringifyJSON = function(obj) {
         str += "}";
       }
   return str;
-
 };
