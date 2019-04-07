@@ -4,14 +4,7 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-  
   var str = "";
-
-  if ( obj === undefined || typeof obj === "function" ){
-  	return "";
-  } else if( obj === null ){
-  	str = "null";
-  } else {
 
   	if ( Array.isArray(obj)) {
 	   	str += "[";
@@ -35,7 +28,7 @@ var stringifyJSON = function(obj) {
 
         str += "{";
         for ( var k in obj ){
-        	if ( k === "undefined" ||  k === "functions" ){
+        	if ( obj[k] === undefined ||  typeof obj[k] === "functions" ){
   					str += "";
   			} else {
       	  		str += "\"" + k + "\":" + stringifyJSON( obj[k] )  ;
@@ -46,6 +39,6 @@ var stringifyJSON = function(obj) {
       	}
         str += "}";
       }
-   }
   return str;
+
 };
