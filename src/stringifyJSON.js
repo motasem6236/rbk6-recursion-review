@@ -4,7 +4,7 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-  // your code goes here
+  
   var str = "";
 
   if ( obj === undefined || typeof obj === "function" ){
@@ -32,7 +32,7 @@ var stringifyJSON = function(obj) {
         }  
 
     } else {
-    	
+
         str += "{";
         for ( var k in obj ){
         	if ( k === "undefined" ||  k === "functions" ){
